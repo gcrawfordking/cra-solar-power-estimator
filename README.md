@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 First run 'npm install' from the root directory to install all dependancies.
 
-You will also need to configure the .env file. If it does not exist, add a .env file to the root and define the variable "REACT_APP_GOOGLE_API_KEY" with the key sent by me via email.
+You will also need to configure the .env file. If it does not exist, add a .env file to the root and define the variable "REACT_APP_GOOGLE_API_KEY" with your own Google API key. If you need one, I could provide one via email.
 
 Then run 'npm start'.
 

@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useEffect, useState } from "react";
+import MapContainer from "./MapContainer";
+import LocationSearchInput from "./PlacesAutocomplete";
+import "./App.css";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    // const [ apiResponse, setApiResponse] = useState("");
+
+    // const callAPI = useCallback(() => {
+    //     fetch("http://localhost:9000/testAPI")
+    //         .then(res => res.text())
+    //         .then(res => setApiResponse(res))
+    //         .catch(err => err);
+    // }, []);
+
+    // useEffect(callAPI, [callAPI]);
+
+    const [ latLongResponse, setLatLongResponse ] = useState(null);
+    const [ zoomLevel, setZoomLevel ] = useState(7);
+
+    useEffect(() => {
+        if (latLongResponse) {
+            setZoomLevel(19);
+        }
+    }, [latLongResponse])
+
+    console.log("resp", latLongResponse)
+
+        return (
+            <div className="container" >
+                {/* <p className="App-intro">{apiResponse}</p> */}
+                <h2>Solar Power Estimator</h2>
+                <LocationSearchInput setLatLongResponse={setLatLongResponse} />
+                <MapContainer latLongResponse={latLongResponse} zoomLevel={zoomLevel}/>
+            </div>
+        );
 }
 
 export default App;
